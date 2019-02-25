@@ -1,14 +1,37 @@
-function Mostrar()
-{
+function Mostrar() {
 
-	var contador=0;
-	var positivo=0;
-	var negativo=1;
-	
-	var respuesta='si';
+	var positivo = 0;
+	var negativo = 1;
+	var respuesta = "s";
+	var numero;
+	var flag = 0;
 
 
-document.getElementById('suma').value=positivo;
-document.getElementById('producto').value=negativo;
+	do {
 
-}//FIN DE LA FUNCIÓN
+		numero = parseFloat(prompt("Ingrese un numero"));
+		if (numero >= 0) {
+
+			positivo += numero;
+
+		}
+		else {
+			negativo = negativo * numero;
+			flag = 1
+		}
+		respuesta = prompt("Quiere continuar?").toLowerCase();
+
+
+	} while (respuesta == "s");
+
+
+	document.getElementById('suma').value = positivo;
+	if (flag == 0) {
+		negativo = 0;
+	}
+	document.getElementById('producto').value = negativo;
+
+}
+
+
+//FIN DE LA FUNCIÓN
